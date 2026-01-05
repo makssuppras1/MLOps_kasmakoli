@@ -71,3 +71,68 @@ uv sync
 ### Python Version
 
 The project uses Python 3.13 (specified in `pyproject.toml`).
+
+## Training and Evaluation
+
+The project includes a CLI-based training and evaluation system using `typer`.
+
+### Training the Model
+
+To train the model with default parameters:
+
+```bash
+uv run main.py train
+```
+
+Or with custom parameters:
+
+```bash
+uv run main.py train --lr 0.001 --batch-size 64 --epochs 10
+```
+
+**Available training parameters:**
+- `--lr`: Learning rate (default: 0.001)
+- `--batch-size`: Batch size for training (default: 32)
+- `--epochs`: Number of training epochs (default: 10)
+
+**Training outputs:**
+- `model.pth`: Saved model checkpoint
+- `training_statistics.png`: Plot showing training loss and accuracy over time
+
+### Evaluating the Model
+
+To evaluate a trained model:
+
+```bash
+uv run main.py evaluate model.pth
+```
+
+This will:
+- Load the saved model checkpoint
+- Evaluate on the test set
+- Print the test accuracy
+
+### Getting Help
+
+To see all available commands and options:
+
+```bash
+uv run main.py --help
+uv run main.py train --help
+uv run main.py evaluate --help
+```
+
+### Example Workflow
+
+1. **Train the model:**
+   ```bash
+   uv run main.py train --epochs 10 --batch-size 64
+   ```
+
+2. **Evaluate the trained model:**
+   ```bash
+   uv run main.py evaluate model.pth
+   ```
+
+3. **Check the training statistics:**
+   Open `training_statistics.png` to view the training curves.
