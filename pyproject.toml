@@ -5,6 +5,7 @@ description = "Machine Learning Operations 02476"
 requires-python = ">=3.13"
 dependencies = [
     "gdown>=5.2.0",
+    "matplotlib>=3.10.8",
     "numpy>=2.4.0",
     "pandas>=2.3.3",
     "scikit-learn>=1.8.0",
